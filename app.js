@@ -1,8 +1,9 @@
-const add = require('./add');
-const read = require('./read');
-const write = require('./write');
-const del = require('./del');
-const update = require('./update');
+const add = require('./add')
+const read = require('./read')
+const write = require('./write')
+const del = require('./del')
+const update = require('./update')
+const present = require('./present')
 
 const data = process.argv
 
@@ -10,11 +11,11 @@ var note = {}
 
 if(data[2] == 'add'){
     note = {
-        id: data[3],
-        title: data[4],
-        body: data[5]
+        "id": data[3],
+        "title": data[4],
+        "body": data[5]
     }
-    var oldNote = read();
+    var oldNote = read()
     add(note, oldNote)
 }
 if(data[2] == 'read') {
@@ -24,19 +25,19 @@ if(data[2] == 'read') {
 }
 if (data [2] === 'delete') {
     let id = data[3];
-    let oldNote = read();
-    let del = require('./del');
-    del(id,oldNote);
+    let oldNote = read()
+    let del = require('./del')
+    del(id, oldNote);
 
     console.log(read());
 }
-if(data[2] == 'update'); {
-    let note = {
+if(data[2] == 'update') {
+    const note = {
         id: data [3],
         title: data [4],
         body: data [5]
     }
-    const oldNote =read()
+    const oldNote = read()
     update(note, oldNote)
-    console.log(update)
+    present(read())
 }
