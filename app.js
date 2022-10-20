@@ -37,6 +37,6 @@ if(data[2] == 'update'); {
         body: data [5]
     }
     const oldNote =read()
-    update(note, oldnote)
+    update(note, oldNote)
     console.log(update)
 }
